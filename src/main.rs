@@ -1,30 +1,35 @@
+use std::cell::RefCell;
+
 use nannou::prelude::*;
 use crate::game::Game;
 
 mod game;
 
 pub fn main() {
-    nannou::app(model).update(update).run();
+    nannou::app(model).event(event).run();
 }
 
-fn model(app: &App) -> Game {
-    app.new_window()
+fn model(app: &App) -> RefCell<Game> {
+    app
+        .new_window()
         .size(400, 400)
         .view(view)
         .build()
         .unwrap();
 
-    Game::new()
+    RefCell::new(Game::new())
 }
 
-fn update(_app: &App, game: &mut Game, _update: Update) {
-    
+fn event(_app: &App, model: &mut RefCell<Game>, event: Event) {
+    let game = model.replace(Game::DUMMY);
+    let game = game.event(event);
+    model.replace(game);
 }
 
-fn view(app: &App, game: &Game, frame: Frame) {
+fn view(app: &App, model: &RefCell<Game>, frame: Frame) {
     let draw = app.draw();
 
-    game.draw(&draw);
+    model.borrow().draw(&draw);
 
     draw.to_frame(app, &frame).unwrap();
 }

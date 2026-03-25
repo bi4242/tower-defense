@@ -1,0 +1,74 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.6.1">
+  <diagram name="Page-1" id="Noi7YdP4pyR5VKAZv6rr">
+    <mxGraphModel dx="1824" dy="648" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1" pageHeight="1" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iPofaBSHs7JfvbhfCXWi-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="Main menu" vertex="1">
+          <mxGeometry height="80" width="80" x="39" y="201" as="geometry" />
+        </mxCell>
+        <mxCell id="iPofaBSHs7JfvbhfCXWi-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="In level" vertex="1">
+          <mxGeometry height="80" width="80" x="39" y="401" as="geometry" />
+        </mxCell>
+        <mxCell id="iPofaBSHs7JfvbhfCXWi-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="Won level" vertex="1">
+          <mxGeometry height="80" width="80" x="-161" y="201" as="geometry" />
+        </mxCell>
+        <mxCell id="iPofaBSHs7JfvbhfCXWi-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="Lost level" vertex="1">
+          <mxGeometry height="80" width="80" x="-160" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="iPofaBSHs7JfvbhfCXWi-6" edge="1" parent="1" source="iPofaBSHs7JfvbhfCXWi-2" style="endArrow=classic;html=1;rounded=0;" target="iPofaBSHs7JfvbhfCXWi-3" value="Lose">
+          <mxGeometry height="50" relative="1" width="50" x="0.5578" y="-1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="-20" y="410" as="sourcePoint" />
+            <mxPoint x="30" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iPofaBSHs7JfvbhfCXWi-7" edge="1" parent="1" source="iPofaBSHs7JfvbhfCXWi-2" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" target="iPofaBSHs7JfvbhfCXWi-4" value="Lose">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="-20" y="410" as="sourcePoint" />
+            <mxPoint x="30" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iPofaBSHs7JfvbhfCXWi-8" edge="1" parent="1" source="iPofaBSHs7JfvbhfCXWi-3" style="endArrow=classic;html=1;rounded=0;" target="iPofaBSHs7JfvbhfCXWi-1" value="Return to menu">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="-20" y="410" as="sourcePoint" />
+            <mxPoint x="30" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iPofaBSHs7JfvbhfCXWi-9" edge="1" parent="1" source="iPofaBSHs7JfvbhfCXWi-4" style="endArrow=classic;html=1;rounded=0;" target="iPofaBSHs7JfvbhfCXWi-1" value="Return to menu">
+          <mxGeometry height="50" relative="1" width="50" x="-0.5547" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="-20" y="410" as="sourcePoint" />
+            <mxPoint x="30" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iPofaBSHs7JfvbhfCXWi-11" edge="1" parent="1" source="iPofaBSHs7JfvbhfCXWi-1" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="iPofaBSHs7JfvbhfCXWi-2" value="Enter level">
+          <mxGeometry height="50" relative="1" width="50" x="-0.1534" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="-20" y="410" as="sourcePoint" />
+            <mxPoint x="30" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iPofaBSHs7JfvbhfCXWi-12" edge="1" parent="1" source="iPofaBSHs7JfvbhfCXWi-2" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" target="iPofaBSHs7JfvbhfCXWi-1" value="Return to menu">
+          <mxGeometry height="50" relative="1" width="50" x="-0.1255" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="-20" y="410" as="sourcePoint" />
+            <mxPoint x="30" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iPofaBSHs7JfvbhfCXWi-13" edge="1" parent="1" source="iPofaBSHs7JfvbhfCXWi-4" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="iPofaBSHs7JfvbhfCXWi-2" value="Retry">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="-20" y="410" as="sourcePoint" />
+            <mxPoint x="30" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3ts4ANrQUCGPKIL_VJX7-1" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="iPofaBSHs7JfvbhfCXWi-1" value="Start game">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="79" y="160" as="sourcePoint" />
+            <mxPoint x="230" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
