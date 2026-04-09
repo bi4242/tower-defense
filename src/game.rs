@@ -15,6 +15,10 @@ pub enum Game {
 }
 
 mod game_states {
+    use nannou::glam::vec2;
+
+    use crate::game::level::config::LevelConfig;
+
     use super::*;
 
     #[derive(Debug)]
@@ -26,7 +30,8 @@ mod game_states {
         }
 
         pub fn draw(&self, draw: &Draw) {
-            draw.background().color(rgb(0.0, 255.0, 0.0));
+            draw.background().color(rgb(255.0, 255.0, 255.0));
+            draw.text("main menu").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
 
         pub fn keypress(self, key: Key) -> Game {
@@ -46,13 +51,16 @@ mod game_states {
 
     impl InLevel {
         pub(super) fn new() -> Self {
+            let config = LevelConfig::TEST;
             InLevel {
-                level: Level::new(),
+                level: Level::new(config),
             }
         }
 
         pub fn draw(&self, draw: &Draw) {
-            draw.background().color(rgb(10.0, 10.0, 10.0));
+            draw.background().color(rgb(255.0, 255.0, 255.0));
+            self.level.draw(draw);
+            draw.text("in level").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
 
         pub fn keypress(self, key: Key) -> Game {
@@ -67,7 +75,8 @@ mod game_states {
 
     impl WonLevel {
         pub fn draw(&self, draw: &Draw) {
-
+            draw.background().color(rgb(255.0, 255.0, 255.0));
+            draw.text("won level").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
 
         pub fn keypress(self, key: Key) -> Game {
@@ -82,7 +91,8 @@ mod game_states {
 
     impl LostLevel {
         pub fn draw(&self, draw: &Draw) {
-
+            draw.background().color(rgb(255.0, 255.0, 255.0));
+            draw.text("lost level").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
 
         pub fn keypress(self, key: Key) -> Game {
