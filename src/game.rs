@@ -29,7 +29,7 @@ mod game_states {
             MainMenu
         }
 
-        pub fn draw(&self, draw: &Draw) {
+        pub fn draw(&self, app: &App, draw: &Draw) {
             draw.background().color(rgb(255.0, 255.0, 255.0));
             draw.text("main menu").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
@@ -57,9 +57,9 @@ mod game_states {
             }
         }
 
-        pub fn draw(&self, draw: &Draw) {
+        pub fn draw(&self, app: &App, draw: &Draw) {
             draw.background().color(rgb(255.0, 255.0, 255.0));
-            self.level.draw(draw);
+            self.level.draw(app, draw);
             draw.text("in level").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
 
@@ -74,7 +74,7 @@ mod game_states {
     }
 
     impl WonLevel {
-        pub fn draw(&self, draw: &Draw) {
+        pub fn draw(&self, app: &App, draw: &Draw) {
             draw.background().color(rgb(255.0, 255.0, 255.0));
             draw.text("won level").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
@@ -90,7 +90,7 @@ mod game_states {
     }
 
     impl LostLevel {
-        pub fn draw(&self, draw: &Draw) {
+        pub fn draw(&self, app: &App, draw: &Draw) {
             draw.background().color(rgb(255.0, 255.0, 255.0));
             draw.text("lost level").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
@@ -133,12 +133,12 @@ impl Game {
         self
     }
 
-    pub fn draw(&self, draw: &Draw) {
+    pub fn draw(&self, app: &App, draw: &Draw) {
         match self {
-            Self::MainMenu (main_menu)    => main_menu .draw(draw),
-            Self::InLevel  (in_level)      => in_level  .draw(draw),
-            Self::WonLevel (won_level)    => won_level .draw(draw),
-            Self::LostLevel(lost_level)  => lost_level.draw(draw),
+            Self::MainMenu (main_menu)    => main_menu .draw(app, draw),
+            Self::InLevel  (in_level)      => in_level  .draw(app, draw),
+            Self::WonLevel (won_level)    => won_level .draw(app, draw),
+            Self::LostLevel(lost_level)  => lost_level.draw(app, draw),
         }
     }
 }

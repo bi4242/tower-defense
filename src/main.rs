@@ -22,14 +22,14 @@ fn model(app: &App) -> RefCell<Game> {
 
 fn event(_app: &App, model: &mut RefCell<Game>, event: Event) {
     let game = model.replace(Game::DUMMY);
-    let game = game.event(event);
+    let game = game.event(event);;
     model.replace(game);
 }
 
 fn view(app: &App, model: &RefCell<Game>, frame: Frame) {
     let draw = app.draw();
 
-    model.borrow().draw(&draw);
+    model.borrow().draw(app, &draw);
 
     draw.to_frame(app, &frame).unwrap();
 }
