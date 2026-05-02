@@ -1,4 +1,4 @@
-use nannou::{Draw, Event, color::rgb, event::{Key, WindowEvent}};
+use nannou::{App, Draw, Event, color::rgb, event::{Key, WindowEvent}};
 
 use crate::game::level::Level;
 
@@ -15,7 +15,7 @@ pub enum Game {
 }
 
 mod game_states {
-    use nannou::glam::vec2;
+    use nannou::{App, geom::Rect, glam::vec2};
 
     use crate::game::level::config::LevelConfig;
 
@@ -59,7 +59,8 @@ mod game_states {
 
         pub fn draw(&self, app: &App, draw: &Draw) {
             draw.background().color(rgb(255.0, 255.0, 255.0));
-            self.level.draw(app, draw);
+            let render_area = app.window_rect();
+            self.level.draw(app, draw, render_area);
             draw.text("in level").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
 
