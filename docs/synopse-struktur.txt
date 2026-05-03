@@ -1,0 +1,5 @@
+Afsnit om:
+* Propagerende arkitektur
+* Game states og tilstandsmaskine
+* Koordinatsystemer
+* TowerGrid og pathfinding
