@@ -3,3 +3,4 @@ Afsnit om:
 * Game states og tilstandsmaskine
 * Koordinatsystemer
 * TowerGrid og pathfinding
+* Konfiguration
