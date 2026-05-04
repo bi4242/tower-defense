@@ -15,7 +15,7 @@ pub enum Game {
 }
 
 mod game_states {
-    use nannou::{App, geom::Rect, glam::vec2};
+    use nannou::{App, glam::{Vec2, vec2}};
 
     use crate::game::level::config::LevelConfig;
 
@@ -32,6 +32,10 @@ mod game_states {
         pub fn draw(&self, app: &App, draw: &Draw) {
             draw.background().color(rgb(255.0, 255.0, 255.0));
             draw.text("main menu").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
+        }
+
+        pub fn tick(self) -> Game {
+            Game::MainMenu(self)
         }
 
         pub fn keypress(self, key: Key) -> Game {
@@ -59,12 +63,24 @@ mod game_states {
 
         pub fn draw(&self, app: &App, draw: &Draw) {
             draw.background().color(rgb(255.0, 255.0, 255.0));
-            let render_area = app.window_rect();
+            let window = app.window_rect();
+            let render_area = window.pad_top(50.0).pad_bottom(50.0);
             self.level.draw(app, draw, render_area);
             draw.text("in level").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
 
-        pub fn keypress(self, key: Key) -> Game {
+        pub fn tick(mut self) -> Game {
+            self.level.tick();
+            Game::InLevel(self)
+        }
+
+        pub fn keypress(mut self, key: Key) -> Game {
+            match key {
+                Key::Space => {
+                    self.level.spawn();
+                },
+                _ => (),
+            }
             Game::InLevel(self)
         }
     }
@@ -78,6 +94,10 @@ mod game_states {
         pub fn draw(&self, app: &App, draw: &Draw) {
             draw.background().color(rgb(255.0, 255.0, 255.0));
             draw.text("won level").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
+        }
+
+        pub fn tick(self) -> Game {
+            Game::WonLevel(self)
         }
 
         pub fn keypress(self, key: Key) -> Game {
@@ -94,6 +114,10 @@ mod game_states {
         pub fn draw(&self, app: &App, draw: &Draw) {
             draw.background().color(rgb(255.0, 255.0, 255.0));
             draw.text("lost level").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
+        }
+
+        pub fn tick(self) -> Game {
+            Game::LostLevel(self)
         }
 
         pub fn keypress(self, key: Key) -> Game {
@@ -131,7 +155,12 @@ impl Game {
     }
 
     pub fn tick(self) -> Game {
-        self
+        match self {
+            Self::MainMenu (main_menu)    => main_menu .tick(),
+            Self::InLevel  (in_level)      => in_level  .tick(),
+            Self::WonLevel (won_level)    => won_level .tick(),
+            Self::LostLevel(lost_level)  => lost_level.tick(),
+        }
     }
 
     pub fn draw(&self, app: &App, draw: &Draw) {
