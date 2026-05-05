@@ -11,7 +11,6 @@ pub struct Enemy {
 impl Enemy {
     pub fn new(position: (usize, usize), tower_grid: &TowerGrid) -> Self {
         let path = tower_grid.get_path(position);
-        dbg!(&path);
         Self {
             path,
             segment_distance: 0.0,
@@ -19,6 +18,10 @@ impl Enemy {
     }
 
     pub fn position(&self, tower_grid: &TowerGrid) -> Vec2 {
+        if self.path.len() == 1 {
+            // Should be removed by level soon.
+            return tower_grid.coords(self.path[0]);
+        }
         let prev_point = tower_grid.coords(self.path[self.path.len() - 1]);
         let next_point = tower_grid.coords(self.path[self.path.len() - 2]);
         Vec2::new(
@@ -28,19 +31,21 @@ impl Enemy {
     }
 
     pub fn tick(&mut self, tower_grid: &TowerGrid) {
+        if self.path.len() == 1 {
+            return;
+        }
         self.segment_distance += 0.1;
         if self.segment_distance >= 1.0 {
             self.path.pop();
             self.segment_distance = 0.1;
-            if self.path.len() < 2 {
-                self.path = tower_grid.get_path((0, 0));
-            }
         }
     }
 
     pub fn draw(&self, app: &App, draw: &Draw, render_area: Rect, tower_grid: &TowerGrid) {
-        let x = render_area.left()   + render_area.w() * self.position(tower_grid).x;
-        let y = render_area.bottom() + render_area.h() * self.position(tower_grid).y;
+        let x = render_area.left()   +
+            render_area.w() * self.position(tower_grid).x;
+        let y = render_area.bottom() +
+            render_area.h() * self.position(tower_grid).y;
         draw.ellipse()
             .x_y(x, y)
             .radius(10.0)

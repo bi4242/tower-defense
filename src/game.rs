@@ -30,7 +30,7 @@ mod game_states {
         }
 
         pub fn draw(&self, app: &App, draw: &Draw) {
-            draw.background().color(rgb(255.0, 255.0, 255.0));
+            draw.background().color(rgb(1.0, 1.0, 1.0));
             draw.text("main menu").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
 
@@ -55,14 +55,14 @@ mod game_states {
 
     impl InLevel {
         pub(super) fn new() -> Self {
-            let config = LevelConfig::TEST;
+            let config = LevelConfig::LEVEL;
             InLevel {
                 level: Level::new(config),
             }
         }
 
         pub fn draw(&self, app: &App, draw: &Draw) {
-            draw.background().color(rgb(255.0, 255.0, 255.0));
+            draw.background().color(rgb(1.0, 1.0, 1.0));
             let window = app.window_rect();
             let render_area = window.pad_top(50.0).pad_bottom(50.0);
             self.level.draw(app, draw, render_area);
@@ -92,7 +92,7 @@ mod game_states {
 
     impl WonLevel {
         pub fn draw(&self, app: &App, draw: &Draw) {
-            draw.background().color(rgb(255.0, 255.0, 255.0));
+            draw.background().color(rgb(1.0, 1.0, 1.0));
             draw.text("won level").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
 
@@ -112,7 +112,7 @@ mod game_states {
 
     impl LostLevel {
         pub fn draw(&self, app: &App, draw: &Draw) {
-            draw.background().color(rgb(255.0, 255.0, 255.0));
+            draw.background().color(rgb(1.0, 1.0, 1.0));
             draw.text("lost level").color(rgb(0.0, 0.0, 0.0)).font_size(30).xy(vec2(0.0, 0.0));
         }
 
