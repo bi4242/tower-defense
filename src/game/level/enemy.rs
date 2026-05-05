@@ -34,10 +34,10 @@ impl Enemy {
         if self.path.len() == 1 {
             return;
         }
-        self.segment_distance += 0.1;
+        self.segment_distance += 0.5;
         if self.segment_distance >= 1.0 {
             self.path.pop();
-            self.segment_distance = 0.1;
+            self.segment_distance = 0.5;
         }
     }
 
