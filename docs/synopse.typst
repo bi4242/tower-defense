@@ -1,0 +1,77 @@
+#import "@preview/codly:1.3.0": *
+#import "@preview/codly-languages:0.1.10": *
+#show: codly-init.with()
+#codly(languages: codly-languages)
+
+#set heading(numbering: "1.1")
+#set text(lang: "da")
+
+#align(center)[
+  #text(size: 34pt)[*Programmering C eksamensprojekt*]
+
+  #text(size: 20pt)[*Jonas Skou Nielsen*]
+
+  #text(size: 16pt)[
+    Eksamensprojekt \
+    Programmering B \
+    xx anslag
+    #v(1cm)
+    #v(1cm)
+
+    Rasmus Berlin
+
+    AARHUS GYMNASIUM, Aarhus C \
+  ]
+
+  #text(size: 16pt)[\5. maj 2026]
+
+  #text(size: 16pt)[24htcd]
+]
+#pagebreak()
+#counter(page).update(1)
+#set page(numbering: "i")
+
+#outline()
+
+#pagebreak()
+#counter(page).update(1)
+#set page(numbering: "1")
+
+= Abstract
+
+#pagebreak()
+
+= Målsætning
+Ved begyndelsen af projektet var målsætningen at programmere et tower defense-spil, hvori fjender stifandt rundt om forhindringer. Tårne ville kunne placeres på et gitter, hvor de udgør en forhindring for fjenderne, som derfor ville skulle ændre sti dynamisk. Dette var inspireret af TowerMadness 2. Tårnenes ville angribe fjenderne på forskellige måder, der alle drager fordel af at være placeret i bestemte position i forhold til fjendernes foretrukne sti. På den måde bliver tårnenes placeringer komplekse beslutninger, der påvirkes af gensidigt afhængige effekter.
+
+#pagebreak()
+
+= Funktionalitet
+
+== Propagerende arkitektur
+
+== `game_states` og tilstandsmaskine
+
+== Koordinatsystemer
+
+== Stifinding
+
+== Konfiguration
+
+= Test- og fejlfindingsstrategier
+
+#pagebreak()
+
+= Konklusion
+
+#pagebreak()
+
+= Bilag
+
+== Eksekve\u{0301}rbare
+Der er vedlagt to eksekve\u{0301}rbare filer:\
+- `tower-defense`: En eksekve\u{0301}rbar fil til Linux.
+- `tower-defense.exe`: En eksekve\u{0301}rbar fil Windows. Programmet er udviklet og testet på Linux, så det er muligt, omend usandsynligt, at der er uopdagede fejl i denne version, der ikke er til stede, når programmet kompileres til Linux. Dog er det tilfældet, at programmets ydeevne er dårlig, hvis programvinduet er stort. Det vides ikke hvorfor, dette sker, og det vurderes ikke at være tiden værd at undersøge yderligere.
+
+== Programkode
+Det git-repository, som programmet er udviklet i, er vedlagt som en `.zip`-fil. Yderligere kan det findes på GitHub på adressen `https://github.com/bi4242/tower-defense`. Udviklingsmiljøet og programmets byggetidsafhængigheder er replike\u{0301}rbare ved hjælp af Nix-skaller. Afhængighederne til at bygge og køre programmet på NixOS (samt andre Linux-distributioner) findes i `nixos.nix`, og afhængihederne til at bygge programmet til Windows findes i `windows.nix`.
